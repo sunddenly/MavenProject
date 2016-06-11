@@ -1,7 +1,7 @@
-*项目描述：* 命令行下构建Maven项目
+**项目描述：** 命令行下构建Maven项目  
 参考文献：http://blog.csdn.net/top_code/article/details/51566159
-*命令格式：*
-  - mvn archetype:generate 
+**命令格式：**
+mvn archetype:generate 
   - DgroupId=[your groupId] 
   - DartifactId=[your artifactId] 
   - Dversion=[your version] 
@@ -51,16 +51,17 @@ Web项目：mvn archetype:generate
 *注意*：artifactID值和项目根目录名称可以不一样，构建时默认和artifactId值相同		   
 ######Maven常用命令============================
 mvn archetype:create 创建 Maven 项目
-mvn compile          编译主程序源代码，不会编译test目录的源代码。第一次运行时，会下载相关的依赖包，可能会比较费时
-mvn test-compile     编译测试代码，compile之后会生成target文件夹，主程序编译在classes下面，测试程序放在test-classes下
-mvn test             运行应用程序中的单元测试 
-mvn site             生成项目相关信息的网站
-mvn clean            清除目标目录中的生成结果
-mvn package          依据项目生成 jar/war等 文件，打包之前会进行编译，测试
-mvn install          在本地 Repository 中安装 jar。
-mvn eclipse:eclipse  生成 Eclipse 项目文件及包引用定义
-mvn deploy           在整合或者发布环境下执行，将最终版本的包拷贝到远程的repository，使得其他的开发者或者工程可以共享。		   
-#####Maven常用命令============================	
-####Maven常用命令============================	
+mvn compile          编译主程序源代码，不会编译test目录的源代码。第一次运行时，会下载相关的依赖包，可能会比较费时  
+mvn test-compile     编译测试代码，compile之后会生成target文件夹，主程序编译在classes下面，测试程序放在test-classes下  
+mvn test             运行应用程序中的单元测试   
+mvn site             生成项目相关信息的网站  
+mvn clean            清除目标目录中的生成结果  
+mvn package          依据项目生成 jar/war等 文件，打包之前会进行编译，测试    
+mvn install          在本地 Repository 中安装 jar  。  
+mvn eclipse:eclipse  生成 Eclipse 项目文件及包引用定义  .  
+mvn deploy           在整合或者发布环境下执行，将最终版本的包拷贝到远程的repository，使得其他的开发者或者工程可以共享  。		   
+#####Maven常用命令
+####Maven常用命令
+###Maven常用命令
 
 		   
