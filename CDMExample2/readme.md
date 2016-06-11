@@ -14,7 +14,6 @@
 	5. 在CMDExample中，进行mvn install再次安装到本地仓库
 	6. 修改项目CMDExample2，在Word类中调用CMDExample项目新添加的Hello.getHello()方法  
 	7. 执行编译：mvn compile ，测试MDExample2中对CMDExample的引用是否成功  
-8. 
 		   
 
 		   
