@@ -29,9 +29,12 @@ asdhk
 ```
 <!-- 高亮代码行-->
 `高亮部分`  
-[=======================================]
-<!-- 图片-->
-<img src="http://www.baidu.com/img/bdlogo.gif " width="20%" height="30px"/>
+<!--横线 -->
+***
+---
+___
+<!-- 图片width="20%" height="30px"-->
+<img src="http://www.baidu.com/img/bdlogo.gif " />
 <!-- 连接-->
 [图片](http://www.baidu.com/img/bdlogo.gif )
 
