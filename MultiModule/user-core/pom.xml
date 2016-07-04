@@ -39,10 +39,6 @@
             <artifactId>dbunit</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.ow2.orchestra.eclipse.birt</groupId>
-            <artifactId>org.ow2.orchestra.eclipse.birt.chart.engine</artifactId>
-        </dependency>
-        <dependency>
             <groupId>abbot</groupId>
             <artifactId>abbot</artifactId>
             <version>1.4.0</version>
@@ -50,15 +46,63 @@
     </dependencies>
 
     <build>
+        <!--编译后的目录名称-->
         <plugins>
             <!--程序源代码打包-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <!--指定插件运行的目标以及所在的生命周期-->
+                <executions>
+                    <execution>
+                        <!--绑定到package生命周期之后-->
+                        <phase>package</phase>
+                        <!--执行完package之后便可执行下面的目标-->
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
+            <!--程序rar打包-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-rar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>rar</goal>
+                        </goals>
+                        <phase>compile</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <includeJar>true</includeJar>
+                </configuration>
+            </plugin>
+            <!--Sql 插件 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sql-maven-plugin</artifactId>
+                <configuration>
+                    <driver>${jdbc.driver}</driver>
+                    <url>${jdbc.url}</url>
+                    <username>${jdbc.username}</username>
+                    <password>${jdbc.password}</password>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>create-db</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <!--配置运行的命令-->
+                            <sqlCommand>create database IF NOT EXISTS itat_maven_test CHARACTER SET utf8;</sqlCommand>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

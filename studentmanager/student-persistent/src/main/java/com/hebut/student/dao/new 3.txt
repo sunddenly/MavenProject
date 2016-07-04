@@ -1,0 +1,76 @@
+  <distributionManagement>
+  	<repository>
+  		<id>basic-releases</id>
+  		<url>http://localhost:8081/nexus/content/repositories/releases/</url>
+  	</repository>
+  	<snapshotRepository>
+  		<id>basic-snapshots</id>
+  		<url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
+  	</snapshotRepository>
+  </distributionManagement>
+  
+      <!--配置发布仓库：Releases和Snapshots-->
+    <distributionManagement>
+        <repository>
+            <!--可以和私服中的repositoryID不一致-->
+            <id>user-releases</id>
+            <name>user release resp</name>
+            <url>http://localhost:8081/nexus/content/repositories/ReposReleases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>user-snapshots</id>
+            <name>user snapshots resp</name>
+            <url>http://localhost:8081/nexus/content/repositories/ReposSnapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+	
+      <!--指定Maven用什么编码来读取源码及文档-->
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <!--指定Maven用什么编码来呈现站点的HTML文件-->
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<argLine>-Dfile.encoding=UTF-8</argLine>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	任务号	课程编号	课程名称	任课教师	上课对象	考核方式	学期学时	开课周	课程类型	课程性质	课群	选课性质	备注
+
+
+ed2k://|file|poi[www.ed2kers.com].rar|626536|291EF17F1413A3E8D1450B268062F139|h=X5S66E7GQADXLEBG7OM5IH6UKJQO2XR6|/
+ed2k://|file|[www.ed2kers.com].rar|374169367|9A38AF7B3B2CDDAADA6DE2499E3E3C41|h=AKCIIV3VGUUC2AHYUGE3XYHFR6JUF5OF|/
+
+二进制
+ed2k://|file|35_(ED2000.COM).avi|58747424|3DC7C46D4ACF64B52B2120B09857EC67|h=J7BRMMDORYRJ2GIORZ6JLP2M4SQFCRQL|/
+
+webservice
+ed2k://|file|webservice_(2ED2000.COM).rar|392302272|E5D73F60194B80CE3C9627D8BB9DF78A|h=GJCATMUI5ZEV5Q5R5KEJ4F6LH4RWS4KO|/
+
+ed2k://|file|webservice_(4ED2000.COM).rar|44621618|6EF839E795E371EE1B7F64BDD9EE76F3|h=KMOZAEAPJWMG3HMWMA5LPFBWNNISFPMW|/
+
+ed2k://|file|Webservice_(0ED2000.COM).mmap|449268|AD80AD246CF567A262FA17BB038B346B|h=RQT2N5RROXTNFN2NU5PNQ57DWRGYMDJH|/
+
+ed2k://|file|Webservice(2ED2000.COM).mmap|733933|9C49283FEB00055A94FBF6DA1D3B4CA6|h=ZOR7QSQ5KZWVVBRLFWMVT2IF72BA75BA|/
+
+ed2k://|file|webservice(22ED2000.COM).rar|85707|965A5AB3412645E3D63495D2844B99D0|h=P6VSCH2Y3ZQHWKYYA6FB5YYCHYYJCBJB|/
+
+ed2k://|file|webservice(33ED2000.COM).rar|77903874|1638169428544DFE664D62A4A6428CDE|h=4IFWGDHRPRJUJPBWXMP2F36D5AZPKBLQ|/
+
+ed2k://|file|webservice(3ED2000.COM).rar|212474979|90526A66AFEE716EC2D9F79703248F4C|h=3HEVPZKWKOB26EL5CF5XRMJTB4AHDCVF|/
+
+ed2k://|file|webservice(44ED2000.COM).rar|193503814|A7123CA0A877BF5AFD45477CA8B6BDAB|h=ET6ZMBMR7JURHXET5DJFYGVZ7C2V3HNZ|/
+
+ed2k://|file|webservice(1ED2000.COM).rar|381652467|7380A7F2C2884E7C638AB68CC0CF3331|h=PHVNP63FQ25HWDKGDBB3WKQDMJZWN7O2|/
+
+ed2k://|file|webservice(11ED2000.COM).rar|55745|E795C120FCA92D34485F77E9D33A1459|h=QAGGQ4NQ2VXIZLQQUAAGQDESD4WGTAXN|/

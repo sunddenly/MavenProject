@@ -17,6 +17,6 @@
 		<!-- 会自动完成类到数据表的转换 -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- 加入实体类的映射文件 -->
-		<mapping class="com.hebut.multi.model.User"/>
+		<mapping class="com.hebut.multi.web.model.User"/>
 	</session-factory>
 </hibernate-configuration>

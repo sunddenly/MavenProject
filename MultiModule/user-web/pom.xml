@@ -14,11 +14,91 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.hebut.multi</groupId>
+            <artifactId>user-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.hebut.multi</groupId>
+            <artifactId>user-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
+
+
     <build>
+        <!--编译后的目录名称-->
         <finalName>user-web</finalName>
+        <plugins>
+           <!--打war包插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <!--打包后的war名称，默认与编译目录名称一致-->
+                    <warName>hello</warName>
+                </configuration>
+            </plugin>
+
+            <!--打jetty插件包插件-->
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <configuration>
+                    <webApp>
+                        <!--应用程序名称-->
+                        <contextPath>/hello2</contextPath>
+                    </webApp>
+                    <!--每10秒扫描一次-->
+                    <scanIntervalSeconds>5</scanIntervalSeconds>
+                    <connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <!--端口号-->
+                            <port>8787</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                    <stopKey/>
+                    <stopPort/>
+                </configuration>
+            </plugin>
+
+            <!--tomcat插件-->
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <!-- Container configuration -->
+                <container>
+                    <containerId>tomcat7x</containerId>
+                    <home>F:\DevelopTools\Java\Tomcat\apache-tomcat-7.0.69</home>
+                </container>
+                <!-- Configuration to use with the container (which will also configure the deployer) -->
+                <configuration>
+                    <type>standalone</type>
+                    <home>${project.build.directory}/tomcat6</home>
+                    <properties>
+
+                    </properties>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

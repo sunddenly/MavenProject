@@ -23,6 +23,7 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.jasig</groupId>
             <artifactId>AjaxPortletSupport</artifactId>
@@ -31,6 +32,7 @@
             <groupId>org.easymock</groupId>
             <artifactId>easymock</artifactId>
         </dependency>
+
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>user-core</artifactId>
@@ -45,5 +47,61 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
     </dependencies>
+
+    <build>
+        <plugins>
+            <!--Maven测试插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+<!--                    <excludes>
+                        <exclude>**/Test*</exclude>
+                    </excludes>-->
+                    <includes>
+                        <include>**/Hello*</include>
+                        <include>**/Test*</include>
+                    </includes>
+                    <!--跳过测试-->
+                    <!-- <skip>true</skip> -->
+                </configuration>
+            </plugin>
+            <!--Maven编译插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <!-- 此处设置了skip等于设置了把所有的测试编译都跳过，不编译测试类
+                            如果测试类有编译问题，也不会报错，所以一般不使用 -->
+                    <!-- <skip>true</skip> -->
+
+                </configuration>
+            </plugin>
+            <!--测试覆盖率插件-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                    <check/>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>cobertura-report</id>
+                        <goals>
+                            <goal>cobertura</goal>
+                        </goals>
+                        <phase>test</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
