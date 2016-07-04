@@ -54,7 +54,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <!--打包后的war名称，默认与编译目录名称一致-->
-                    <warName>hello</warName>
+                    <warName>user-web</warName>
                 </configuration>
             </plugin>
 
@@ -80,25 +80,25 @@
                     <stopPort/>
                 </configuration>
             </plugin>
-
             <!--tomcat插件-->
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>
-                <!-- Container configuration -->
-                <container>
-                    <containerId>tomcat7x</containerId>
-                    <home>F:\DevelopTools\Java\Tomcat\apache-tomcat-7.0.69</home>
-                </container>
-                <!-- Configuration to use with the container (which will also configure the deployer) -->
-                <configuration>
-                    <type>standalone</type>
-                    <home>${project.build.directory}/tomcat6</home>
-                    <properties>
 
-                    </properties>
+                <configuration>
+                    <!-- Container configuration -->
+                    <container>
+                        <containerId>tomcat6x</containerId>
+                        <home>${env.TOMCAT_HOME}</home>
+                    </container>
+                    <!-- Configuration to use with the container -->
+                    <configuration>
+                        <type>standalone</type>
+                        <home>${project.build.directory}/tomcat7</home>
+                    </configuration>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 </project>

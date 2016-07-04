@@ -50,11 +50,6 @@
         <argLine>-Dfile.encoding=UTF-8</argLine>
     </properties>
 
-    <!-- <repositories> <repository> <id>nexus</id> <name>Nexus Repository</name>
-        <url>http://localhost:8081/nexus/content/groups/public/</url> <releases>
-        <enabled>true</enabled> </releases> snapshots默认是关闭的，需要手动开启 <snapshots> <enabled>true</enabled>
-        </snapshots> </repository> </repositories> -->
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -168,73 +163,9 @@
                 <plugin>
                     <groupId>org.codehaus.cargo</groupId>
                     <artifactId>cargo-maven2-plugin</artifactId>
-                    <version>1.5.1-SNAPSHOT</version>
-                </plugin>
-                <!--gitHub插件-->
-                <plugin>
-                    <groupId>com.github.goldin</groupId>
-                    <artifactId>copy-maven-plugin</artifactId>
-                    <version>0.2.5</version>
-                    <executions>
-                        <execution>
-                            <id>copy-war</id>
-                            <phase>package</phase>
-                            <goals>
-                                 <goal>copy</goal>
-                            </goals>
-                             <configuration>
-                                <resources>
-                                     <resource>
-                                          <targetPath>${catalina.home}/webapps</targetPath>
-                                          <directory>${project.build.directory}</directory>
-                                          <includes>
-                                              <include>user-web.war</include>
-                                          </includes>
-                                  </resource>
-                              </resources>
-                          </configuration>
-                      </execution>
-                    </executions>
+                    <version>1.5.0</version>
                 </plugin>
 
-                <plugin>
-                    <groupId>org.eclipse.m2e</groupId>
-                    <artifactId>lifecycle-mapping</artifactId>
-                    <version>1.0.0</version>
-                    <configuration>
-                        <lifecycleMappingMetadata>
-                            <pluginExecutions>
-                                  <pluginExecution>
-                                      <pluginExecutionFilter>
-                                          <groupId>org.codehaus.mojo</groupId>
-                                          <artifactId>sql-maven-plugin</artifactId>
-                                          <versionRange>[1.5,)</versionRange>
-                                          <goals>
-                                                <goal>execute</goal>
-                                          </goals>
-                                      </pluginExecutionFilter>
-                                      <action>
-                                          <ignore />
-                                      </action>
-                                  </pluginExecution>
-                            </pluginExecutions>
-                        </lifecycleMappingMetadata>
-                    </configuration>
-                </plugin>
-                 <!--sql插件-->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>sql-maven-plugin</artifactId>
-                    <version>1.5</version>
-                    <!-- 使用插件依然可以指定相应的依赖 -->
-                    <dependencies>
-                        <dependency>
-                            <groupId>mysql</groupId>
-                            <artifactId>mysql-connector-java</artifactId>
-                            <version>${mysql-connector-java.version}</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
                 <!--rar插件-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
