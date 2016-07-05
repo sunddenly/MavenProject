@@ -1,0 +1,150 @@
+
+三个配置文件
+~/.m2
+/user
+maven
+
+
+
+
+Orcale JDBC 驱动
+Maven 网站搜到的索引，可能不是Central仓库
+<dependency>
+    <groupId>ojdbc</groupId>
+    <artifactId>ojdbc</artifactId>
+    <version>14</version>
+</dependency>
+Central 仓库中搜索到的索引
+<dependency>
+	<groupId>com.oracle</groupId>
+	<artifactId>ojdbc14</artifactId>
+	<version>${ojdbc14.version}}</version>
+</dependency>
+Central虽然能够索引到，但是无法下载[ERROR] Failed to execute goal on project user-core: Could not resolve dependencies for project com.hebut.multi:user-core:jar:1.0-SNAPSHOT: Could not find artifact
+ com.oracle:ojdbc14:jar:9.0.2.0.0} in central (https://repo.maven.apache.org/maven2) -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+ojdbc14-9.0.2.0.0-g.jar.md5                        14-Dec-2006 13:26                  32
+ojdbc14-9.0.2.0.0-g.jar.sha1                       14-Dec-2006 13:26                  40
+ojdbc14-9.0.2.0.0.jar.md5                          14-Dec-2006 13:26                  32
+ojdbc14-9.0.2.0.0.jar.sha1                         14-Dec-2006 13:26                  40
+ojdbc14-9.0.2.0.0.pom                              20-Dec-2006 13:57                 935
+ojdbc14-9.0.2.0.0.pom.md5                          20-Dec-2006 13:58                  32
+ojdbc14-9.0.2.0.0.pom.sha1                         20-Dec-2006 13:58                  40
+没有相关jar
+解决 Maven oracle驱动无法下载到的问题 
+http://blog.csdn.net/hbxtw/article/details/15340217
+Maven管理Oracle11gJDBC驱动(手动安装oracle11g)详细版
+http://www.2cto.com/database/201412/361761.html
+Oracle Jdbc驱动下载及安装本地maven仓库
+http://www.oseye.net/user/kevin/blog/275
+Maven 找不到oracle jdbc 驱动,哪位高手之过
+http://www.myexception.cn/database/755141.html
+
+Get Oracle JDBC drivers from the Oracle Maven Repository
+<dependency> 
+   <groupId>com.oracle.jdbc</groupId> 
+   <artifactId>ojdbc7</artifactId> 
+   <version>12.1.0.2</version> 
+</dependency>
+
+
+
+
+使用Nexus创建Maven私有仓库 
+http://blog.csdn.net/dhmpgt/article/details/9998321
+ maven--私服的搭建（Nexus的使用） 
+ http://blog.csdn.net/shenshen123jun/article/details/9084293
+
+linux下 nexus搭建maven私有库 自动打包
+http://blog.csdn.net/a973893384/article/details/46724227
+
+Maven仓库管理之Nexus 
+http://my.oschina.net/aiguozhe/blog/101537
+
+使用Nexus搭建Maven私服上传jar包
+http://www.cnblogs.com/quanyongan/archive/2013/04/24/3037589.html
+Maven仓库—Nexus环境搭建及简单介绍 
+http://blog.csdn.net/wang379275614/article/details/43940259
+
+
+maven国内镜像--开源中国
+http://buxin-2008.iteye.com/blog/2065142
+
+
+nexus的安装
+http://www.hz7788.com/news/aF85YjU0YmMwMDAzZDhjZTJmMDA2NjIzZGE_1/
+
+Windows 下Nexus搭建Maven私服 
+http://longzhun.iteye.com/blog/1745394
+Nexus3.0.0+Maven的使用(一)
+http://www.cnblogs.com/qq27271609/p/5497412.html
+Setting 元素
+http://www.cnblogs.com/skyme/archive/2011/08/19/2146105.html
+http://blog.csdn.net/stypace/article/details/38458377
+http://www.360doc.com/content/12/0403/14/834950_200481342.shtml
+http://haohaoxuexi.iteye.com/blog/1827778
+Maven Seting
+http://my.oschina.net/qjx1208/blog/201085
+
+http://www.imooc.com/qadetail/113253
+
+
+约定优于配置
+http://blog.csdn.net/mengxiangyue/article/details/7378338
+http://www.w2bc.com/article/144835
+约定配置优先于手动配置，能使用约定的内容就尽量使用约定的内容，这样就不需要手动去配置了
+减少配置量。比如使用Maven约定的目录结构、默认打包名称、编译目录名称
+
+
+声明顺序+依赖关系
+先读取当前用户的.m2目录下的settings.xml文件
+如果不存在，则去maven根目录下的conf里的settings.xml文件； 
+http://blog.leanote.com/post/aguda/maven%E6%9D%82%E8%AE%B0
+仓库组
+http://www.blogjava.net/fancydeepin/archive/2015/06/27/maven-nexus.html
+
+	Primeton 3rd Repository	第三方jar的存放仓库
+Primeton P2 Eclipse Repository	Eclipse插件编译使用的介质的存放仓库
+Primeton Flex Repository	Flex编译使用的介质的存放仓库
+Primeton Maven Plugins	Maven插件的存放仓库
+Primeton Products Release	公司产品或者组件已发布的中间介质的存放仓库
+Primeton Products Snapshots	公司产品或者组件未发布的中间介质的存放仓库
+Primeton Public Repositories	产品或者组件编译需要的公共仓库（group）
+Primeton Public Maven Repositories	Maven插件的公共仓库（group）
+前者又被叫做全局配置，后者被称为用户配置。如果两者都存在，它们的内容将被合并，并且用户范围的settings.xml优先。
+
+如果你偶尔需要创建用户范围的settings，你可以简单的copy Maven安装路径下的settings到目录${user.home}/.m2。Maven默认的settings.xml是一个包含了注释和例子的模板，你可以快速的修改它来达到你的要求。
+
+资源过滤配置
+就实现了不同环境读取不同的配置文件
+http://blog.csdn.net/u012228718/article/details/42717963
+
+读取三个配置文件优先级
+一个java项目通过maven自动下载依赖时，会涉级读取三个配置文件，分别是项目下的pom.xml 文件 、家目录下的.m2/settings.xml 与 maven 全局配置settings.xml  ，后面两者不难理解，就像linux下的用户一样，有一个/etc/profile ，用户用目录下还有一个.bash_profile 文件是一样的，用户自定义配置会覆盖全局配置。所以三者的级先是 pom.xml  > /home_dir/.m2/settings.xml > /maven_dir/conf/settings.xml 。
+http://www.361way.com/maven-pom-settings/4863.html
+
+两个文件的关系为：如果两个文件同时存在，文件内容将被融合，相同设置将以用户设置的settings.xml为准。
+Maven目录结构
+https://github.com/ningg/ningg.github.com/blob/master/_posts/blog/2014-07-04-maven-intro.md
+默认情况下，~/.m2目录下除了repository仓库之外就没有其他目录和文件了，不过大多数Maven用户需要复制M2_HOME/conf/settings.xml文件到~/.m2/settings.xml。（原因：Maven用户可以选择配置$M2_HOME/conf/settings.xml或者~/.m2/settings.xml。前者是全局范围的，整台机器上的所有用户都会直接受到该配置的影响，而后者是用户范围的，只有当前用户才会受到该配置的影响。）
+课件
+http://wenku.baidu.com/view/9ae454bcfd0a79563c1e722b.html
+
+
+于定义一系列的远程仓库的镜像。我们可以在pom中定义一个下载工件的时候所使用的远程仓库。但是有时候这个远程仓库会比较忙，所以这个时候人们就想着给它创建镜像以缓解远程仓库的压力，也就是说会把对远程仓库的请求转换到对其镜像地址的请求。每个远程仓库都会有一个id，这样我们就可以创建自己的mirror来关联到该仓库，那么以后需要从远程仓库下载工件的时候Maven就可以从我们定义好的mirror站点来下载，这可以很好的缓解我们远程仓库的压力。在我们定义的mirror中每个远程仓库都只能有一个mirror与它关联，也就是说你不能同时配置多个mirror的mirrorOf指向同一个repositoryId
+Maven提高篇系列之一——多模块 vs 继承
+http://my.oschina.net/ydsakyclguozi/blog/411983
+Maven常用配置及Tomcat插件配置
+http://gaozzsoft.iteye.com/blog/1775641
+远程部署
+http://www.jianshu.com/p/78b17d656a5e
+
+
+插件编写
+http://blog.csdn.net/vking_wang/article/details/8612981
+https://www.ibm.com/developerworks/cn/java/j-5things13/
+
+对比
+Java构建工具:Maven与Gradle的对比

@@ -11,6 +11,7 @@
         <module>user-web</module>
         <module>user-log</module>
         <module>user-service</module>
+        <module>user-remote-web</module>
     </modules>
 
     <name>multimodule</name>
@@ -19,12 +20,12 @@
     <distributionManagement>
         <repository>
             <!--可以和私服中的repositoryID不一致-->
-            <id>user-releases</id>
+            <id>project-releases</id>
             <name>user release resp</name>
             <url>http://localhost:8081/nexus/content/repositories/ReposReleases/</url>
         </repository>
         <snapshotRepository>
-            <id>user-snapshots</id>
+            <id>Project-snapshots</id>
             <name>user snapshots resp</name>
             <url>http://localhost:8081/nexus/content/repositories/ReposSnapshots/</url>
         </snapshotRepository>

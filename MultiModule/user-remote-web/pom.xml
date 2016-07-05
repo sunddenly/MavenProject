@@ -6,9 +6,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>user-web</artifactId>
+    <artifactId>user-remote-web</artifactId>
     <packaging>war</packaging>
-    <name>user-web Maven Webapp</name>
+    <name>user-remote-web Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -40,66 +40,23 @@
             <version>1.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
-
     <build>
+
         <!--编译后的目录名称-->
-        <finalName>user-web</finalName>
+        <finalName>user-remote-web</finalName>
         <plugins>
-           <!--打war包插件-->
+            <!--打war包插件-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <!--打包后的war名称，默认与编译目录名称一致-->
-                    <warName>user-web</warName>
+                    <warName>user-remote-web</warName>
                 </configuration>
             </plugin>
 
-            <!--打jetty插件包插件-->
-            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <configuration>
-                    <webApp>
-                        <!--应用程序名称-->
-                        <contextPath>/hello2</contextPath>
-                    </webApp>
-                    <!--每10秒扫描一次-->
-                    <scanIntervalSeconds>5</scanIntervalSeconds>
-                    <connectors>
-                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <!--端口号-->
-                            <port>8787</port>
-                            <maxIdleTime>60000</maxIdleTime>
-                        </connector>
-                    </connectors>
-                    <stopKey/>
-                    <stopPort/>
-                </configuration>
-            </plugin>
-            <!--tomcat插件-->
-<!--            <plugin>
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
-                <configuration>
-                    &lt;!&ndash; Container configuration &ndash;&gt;
-                    <container>
-                        <containerId>tomcat7x</containerId>
-                        <home>${env.TOMCAT_HOME}</home>
-                    </container>
-                    &lt;!&ndash; Configuration to use with the container &ndash;&gt;
-                    <configuration>
-                        <type>standalone</type>
-                        <home>${project.build.directory}/tomcat7</home>
-                        <properties>
-                            <cargo.servlet.port>8082</cargo.servlet.port>
-                        </properties>
-                    </configuration>
-                </configuration>
-            </plugin>-->
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>
@@ -107,13 +64,31 @@
                     <!-- Container configuration -->
                     <container>
                         <containerId>tomcat7x</containerId>
-                        <home>${env.TOMCAT_HOME}</home>
+                        <type>remote</type>
                     </container>
-                    <!-- Configuration to use with the container -->
                     <configuration>
-                        <type>existing</type>
-                        <home>${env.TOMCAT_HOME}</home>
+                        <type>runtime</type>
+                        <properties>
+                            <cargo.tomcat.manager.url>http://115.28.183.65:8080/manager/text</cargo.tomcat.manager.url>
+                            <cargo.remote.username>admin</cargo.remote.username>
+                            <cargo.remote.password>password</cargo.remote.password>
+                            <cargo.hostname>115.28.183.65</cargo.hostname>
+                        </properties>
                     </configuration>
+                    <deployables>
+                        <deployable>
+                            <groupId>com.hebut.multi</groupId>
+                            <artifactId>user-remote-web</artifactId>
+                            <type>war</type>
+                            <properties>
+                                <context>/${project.artifactId}</context>
+                            </properties>
+                            <!-- 可选：验证是否部署成功 -->
+                            <pingURL>http://115.28.183.65:8080/user-remote-web</pingURL>
+                            <!-- 可选：验证超时时间，默认是120000 毫秒-->
+                            <pingTimeout>60000</pingTimeout>
+                        </deployable>
+                    </deployables>
                 </configuration>
             </plugin>
         </plugins>
