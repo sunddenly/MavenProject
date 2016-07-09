@@ -16,12 +16,12 @@
     <distributionManagement>
         <repository>
             <id>public-releases</id>
-            <name>user release resp</name>
+            <name>public release resp</name>
             <url>http://localhost:8081/nexus/content/repositories/releases/</url>
         </repository>
         <snapshotRepository>
             <id>public-snapshots</id>
-            <name>user snapshots resp</name>
+            <name>public snapshots resp</name>
             <url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
