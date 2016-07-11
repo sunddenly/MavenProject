@@ -166,12 +166,6 @@
             <artifactId>persistence-api</artifactId>
             <version>${persistence-api.version}</version>
         </dependency>
-        <!--spring-test-->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
         <!-- mybatis核心包 -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -283,8 +277,8 @@
     <!--设置项目编译级别等设置 start-->
     <build>
         <finalName>${project.artifactId}</finalName>
+        <!--表示把java目录下的有关xml文件,properties文件编译/打包的时候放在resource目录下-->
         <resources>
-            <!--表示把java目录下的有关xml文件,properties文件编译/打包的时候放在resource目录下-->
             <resource>
                 <directory>${basedir}/src/main/java</directory>
                 <includes>
