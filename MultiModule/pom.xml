@@ -158,13 +158,14 @@
                 <plugin>
                     <groupId>org.mortbay.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
-                    <version> 8.1.16.v20140903</version>
+                    <version>8.1.16.v20140903</version>				
                 </plugin>
                 <!--tomcat插件-->
                 <plugin>
                     <groupId>org.codehaus.cargo</groupId>
                     <artifactId>cargo-maven2-plugin</artifactId>
                     <version>1.5.0</version>
+					
                 </plugin>
 
                 <!--rar插件-->
