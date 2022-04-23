@@ -31,7 +31,7 @@
         <!--指定Maven用什么编码来呈现站点的HTML文件-->
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <argLine>-Dfile.encoding=UTF-8</argLine>
-        <spring.version>4.2.6.RELEASE</spring.version>
+        <spring.version>5.3.19</spring.version>
     </properties>
 
     <dependencyManagement>
