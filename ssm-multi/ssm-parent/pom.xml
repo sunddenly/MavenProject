@@ -32,7 +32,7 @@
         <javax.servlet-api.version>3.0.1</javax.servlet-api.version>
         <!--json-->
         <httpclient.version>4.3.3</httpclient.version>
-        <jackson-databind.version>2.4.2</jackson-databind.version>
+        <jackson-databind.version>2.12.7.1</jackson-databind.version>
         <fastjson.version>1.1.43</fastjson.version>
         <!-- framework -->
         <spring.version>4.2.6.RELEASE</spring.version>
