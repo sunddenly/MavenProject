@@ -28,7 +28,7 @@
         <jackson-databind.version>2.4.2</jackson-databind.version>
         <fastjson.version>1.1.43</fastjson.version>
         <!-- framework -->
-        <spring.version>4.2.6.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <mybatis.version>3.3.1</mybatis.version>
         <mybatis-spring.version>1.2.4</mybatis-spring.version>
         <commons-logging.version>1.2</commons-logging.version>
